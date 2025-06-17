@@ -1,0 +1,713 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Pacifico&family=Dancing+Script:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './styles/agentCard.css';
+@import './styles/agentCardThemes.css';
+@import './styles/agentCardAnimations.css';
+
+:root {
+  --tw-color-primary: #f8f9fa;
+  --tw-color-primary-rgb: 248, 249, 250;
+  --tw-color-accent: #6366f1;
+  --tw-color-background: #f8f9fa;
+  --tw-color-surface: #ffffff;
+  --tw-color-surface-light: #f5f5f5;
+  --tw-shadow-card: 0 4px 24px 0 rgba(0,0,0,0.08);
+  --tw-text-color: #333333;
+  --tw-text-color-secondary: #666666;
+}
+
+body {
+  background-color: var(--tw-color-background);
+  color: var(--tw-text-color);
+  font-family: 'Poppins', ui-sans-serif, system-ui;
+}
+
+/* Custom card style for chat and panels */
+.card {
+  background-color: var(--tw-color-surface-light);
+  border-radius: 1.25rem;
+  box-shadow: var(--tw-shadow-card);
+  padding: 1.5rem;
+  color: var(--tw-text-color);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--tw-color-primary) !important;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  box-shadow: var(--tw-shadow-card);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  filter: brightness(0.9);
+}
+.btn-primary:disabled {
+  background-color: #bdbdbd !important;
+  color: #f5f5f5 !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+  filter: none;
+}
+
+.btn-accent {
+  background-color: var(--tw-color-accent) !important;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 1.25rem;
+  box-shadow: var(--tw-shadow-card);
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-accent:hover {
+  filter: brightness(0.9);
+}
+
+/* Agent cards and skills styles */
+.agent-card {
+  background-color: var(--tw-color-surface);
+  border-radius: 1.25rem;
+  box-shadow: var(--tw-shadow-card);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.agent-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: color-mix(in srgb, var(--tw-color-primary) 20%, transparent);
+}
+.agent-avatar-label {
+  color: var(--tw-color-primary);
+  font-size: 2rem;
+  font-weight: bold;
+}
+.agent-title {
+  color: var(--tw-text-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.agent-desc {
+  color: var(--tw-text-color-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+.agent-skill-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--tw-color-primary);
+  background: var(--tw-color-surface);
+  box-shadow: var(--tw-shadow-card);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.agent-skill-card:hover {
+  transform: scale(1.03);
+  background: var(--tw-color-primary);
+}
+.agent-skill-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: var(--tw-color-primary);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.agent-skill-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.agent-skill-desc {
+  color: var(--tw-text-color-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Sidebar styles */
+.sidebar-app-name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--tw-color-primary);
+  text-shadow: 0 2px 8px var(--tw-color-primary), 0 1px 0 rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.10);
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--tw-color-primary), var(--tw-color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  word-break: break-word;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 0 0.5rem;
+}
+.sidebar-client-btn,
+.sidebar-server-btn {
+  background-color: var(--tw-color-surface);
+  color: var(--tw-text-color);
+  border: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-client-btn.active,
+.sidebar-server-btn.active {
+  background-color: var(--tw-color-primary) !important;
+  color: #fff !important;
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: var(--tw-shadow-card);
+}
+
+/* Improved white theme active button for sidebar */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn.active {
+  background-color: #111 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: 1.5px solid #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active):hover {
+  background-color: #ececec;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+
+/* White theme active button enhancement */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn.active {
+  background-color: #ececec;
+  color: #222 !important;
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.sidebar-client-btn:not(.active):hover,
+.sidebar-server-btn:not(.active):hover {
+  background-color: #f3f3f3;
+  color: #222;
+}
+
+/* White theme active settings button with black background and white text */
+:root[style*="--tw-color-background: #f8f9fa"] .btn-primary.sidebar-settings-btn.active {
+  background-color: #111 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: 1.5px solid #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .btn-primary.sidebar-settings-btn:not(.active):hover {
+  background-color: #ececec;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+
+/* White theme: sidebar settings button normal state (not gray, but white/black) */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn:not(.active) {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1.5px solid #e0e0e0;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+/* White theme: all sidebar buttons (engine, agent, settings, theme, about) use same black/white combo */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-btn,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1.5px solid #e0e0e0;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn.active {
+  background-color: #111 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: 1.5px solid #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn:not(.active):hover {
+  background-color: #ececec;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+
+/* Chat message styles */
+.chat-msg-human {
+  background: var(--tw-color-primary);
+  color: #fff;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  max-width: 20rem;
+  box-shadow: var(--tw-shadow-card);
+  text-align: right;
+}
+.chat-msg-ai {
+  background: var(--tw-color-surface);
+  color: var(--tw-text-color);
+  border: 1px solid var(--tw-color-primary);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  max-width: 20rem;
+  box-shadow: var(--tw-shadow-card);
+  text-align: left;
+  white-space: pre-line;
+  word-break: break-word;
+}
+.chat-msg-meta {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--tw-text-color-secondary);
+}
+
+/* Chat header styles */
+.chat-header-bar {
+  background: var(--tw-color-surface);
+  border-bottom: 1px solid var(--tw-color-primary);
+}
+.chat-header-title {
+  color: var(--tw-color-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.chat-header-close {
+  background: var(--tw-color-accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: background 0.2s;
+  border: none;
+}
+.chat-header-close:hover {
+  filter: brightness(0.9);
+}
+
+/* About popup styles */
+.about-popup-bg {
+  background: #fff;
+  color: #111;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.18), var(--tw-shadow-card);
+}
+.about-popup-title {
+  color: #111;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.about-popup-text {
+  color: #232323;
+}
+.about-popup-close {
+  color: #888;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.about-popup-close:hover {
+  color: var(--tw-color-accent);
+}
+
+/* White Theme Specific Styles */
+.bg-surface {
+  background-color: var(--tw-color-surface);
+  color: var(--tw-text-color);
+}
+
+.bg-surface-light {
+  background-color: var(--tw-color-surface-light);
+  color: var(--tw-text-color);
+}
+
+/* Override styles for light theme buttons */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active),
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active) {
+  color: var(--tw-text-color);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn.active {
+  color: #ffffff !important;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active):hover {
+  color: #ffffff;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-app-name {
+  color: #111 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  text-shadow: none !important;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .font-bold.text-primary {
+  color: var(--tw-color-accent);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .divide-zinc-700 {
+  border-color: #e5e5e5;
+}
+
+/* Agent card and chat overrides for light theme */
+:root[style*="--tw-color-background: #f8f9fa"] .agent-title {
+  color: var(--tw-text-color);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-desc {
+  color: var(--tw-text-color-secondary);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .chat-msg-ai {
+  color: var(--tw-text-color);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .chat-msg-meta {
+  color: var(--tw-text-color-secondary);
+}
+
+/* White theme additional overrides */
+:root[style*="--tw-color-background: #f8f9fa"] .text-zinc-500 {
+  color: var(--tw-text-color-secondary);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .text-zinc-400 {
+  color: var(--tw-text-color-secondary);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .border-zinc-700 {
+  border-color: var(--tw-chat-divider-color);
+}
+
+/* ThemePopup white theme overrides */
+:root[style*="--tw-color-background: #f8f9fa"] .bg-black\/40 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* For EngineView status */
+:root[style*="--tw-color-background: #f8f9fa"] .text-green-500 {
+  color: #15803d;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* --- White theme: consistent black/white combo for all main UI areas --- */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn.active,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn.active {
+  background-color: #111 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: 1.5px solid #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn:not(.active):hover {
+  background-color: #ececec;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+
+/* EngineView: card and text */
+:root[style*="--tw-color-background: #f8f9fa"] .card {
+  background: #fff;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .text-primary {
+  color: #111 !important;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .text-textSecondary,
+:root[style*="--tw-color-background: #f8f9fa"] .text-zinc-400,
+:root[style*="--tw-color-background: #f8f9fa"] .text-zinc-500 {
+  color: #444 !important;
+}
+
+/* AgentView: agent card, avatar, skill, etc. */
+:root[style*="--tw-color-background: #f8f9fa"] .agent-card {
+  background: #fff;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-avatar-label {
+  color: #111;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-title {
+  color: #111;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-desc,
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-desc {
+  color: #444;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-title {
+  color: #111;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card {
+  background: #f5f5f5;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover {
+  background: #111;
+  color: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-title,
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-desc,
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-avatar {
+  color: #fff;
+}
+
+/* ChatWindow: chat bubbles, input, header */
+:root[style*="--tw-color-background: #f8f9fa"] .chat-msg-human {
+  background: #111;
+  color: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-msg-ai {
+  background: #f5f5f5;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-header-bar {
+  background: #fff;
+  border-bottom: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-header-title {
+  color: #111;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-header-close {
+  background: #111;
+  color: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-header-close:hover {
+  filter: brightness(1.2);
+}
+:root[style*="--tw-color-background: #f8f9fa"] .chat-msg-meta {
+  color: #bebebe;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .bg-surface,
+:root[style*="--tw-color-background: #f8f9fa"] .bg-surface-light {
+  background: #fff;
+  color: #111;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .border-zinc-700 {
+  border-color: #e0e0e0 !important;
+}
+
+/* MainContent: fallback text */
+:root[style*="--tw-color-background: #f8f9fa"] .maincontent-fallback {
+  color: #111;
+}
+
+/* Sidebar button hover: original for all themes */
+.sidebar-client-btn:not(.active):hover,
+.sidebar-server-btn:not(.active):hover,
+.sidebar-settings-btn:not(.active):hover,
+.sidebar-btn:not(.active):hover {
+  background-color: var(--tw-color-primary);
+  color: #fff;
+}
+
+/* Sidebar button hover: white theme override */
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-client-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-server-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-settings-btn:not(.active):hover,
+:root[style*="--tw-color-background: #f8f9fa"] .sidebar-btn:not(.active):hover {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: 1.5px solid #222;
+}
+
+/* White theme: agent card avatar and skill avatar backgrounds */
+:root[style*="--tw-color-background: #f8f9fa"] .agent-avatar {
+  background: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-avatar {
+  background: #111;
+  color: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card {
+  background: #fff;
+  color: #111;
+  border: 1.5px solid #e0e0e0;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover {
+  background: #111;
+  color: #fff;
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-title,
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-desc,
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card:hover .agent-skill-avatar {
+  color: #fff;
+}
+
+/* White theme: Interact button in agent card */
+:root[style*="--tw-color-background: #f8f9fa"] .agent-card .btn-primary {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1.5px solid #111;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+:root[style*="--tw-color-background: #f8f9fa"] .agent-card .btn-primary:hover {
+  background: #222 !important;
+  color: #fff !important;
+  border: 1.5px solid #222;
+}
+
+/* White theme: EngineView buttons (Copy, Close Engine) */
+:root[style*="--tw-color-background: #f8f9fa"] .btn-accent {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1.5px solid #111;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+:root[style*="--tw-color-background: #f8f9fa"] .btn-accent:hover {
+  background: #222 !important;
+  color: #fff !important;
+  border: 1.5px solid #222;
+}
+
+/* White theme: Start Engine button */
+:root[style*="--tw-color-background: #f8f9fa"] .btn-primary {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1.5px solid #111;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+:root[style*="--tw-color-background: #f8f9fa"] .btn-primary:hover {
+  background: #222 !important;
+  color: #fff !important;
+  border: 1.5px solid #222;
+}
+
+/* Sidebar app name shimmer effect */
+.sidebar-app-name-animated {
+  position: relative;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #6366f1, #f59e42, #10b981, #f43f5e, #0ea5e9, #6366f1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-user-select: none;
+  user-select: none;
+  animation: sidebar-app-shimmer 3s linear infinite;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.sidebar-app-icon {
+  flex-shrink: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: inline-block;
+}
+.sidebar-app-name-text {
+  display: inline-block;
+  font-family: 'Caveat', 'Pacifico', 'Dancing Script', cursive, 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+@keyframes sidebar-app-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Agent details popup styles */
+.agent-details-description {
+  max-height: 80px;
+  overflow-y: auto;
+}
+.agent-details-prompt {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* Agent row hover effect */
+.agent-row-hover {
+  transition: background 0.15s;
+}
+.agent-row-hover:hover {
+  background: color-mix(in srgb, var(--tw-color-primary) 10%, transparent);
+}
+:root[style*="--tw-color-background: #18181b"] .agent-row-hover:hover {
+  background: color-mix(in srgb, var(--tw-color-accent) 10%, #18181b);
+}
+.agent-row-action-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

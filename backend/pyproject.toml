@@ -1,0 +1,33 @@
+[project]
+name = "a2a-sample-agent-langgraph"
+version = "0.1.0"
+description = "Sample LangGraph currency ggent with A2A Protocol"
+requires-python = ">=3.12"
+dependencies = [
+    #"a2a-samples",
+    "click>=8.1.8",
+    "httpx>=0.28.1",
+    "langchain-google-genai>=2.0.10",
+    "langgraph>=0.3.18",
+    "pydantic>=2.10.6",
+    "python-dotenv>=1.1.0",
+    "asyncclick>=8.1.8",
+    "sse-starlette>=2.2.1",
+    "starlette>=0.46.1",
+    "jwcrypto>=1.5.6",
+    "pyjwt>=2.10.1",
+    "uvicorn>=0.34.0",
+    "fastapi>=0.110.0",
+    "langchain-mcp-adapters",
+    "langchain_openai",
+    "pymongo>=4.7.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.uv.sources]
+# a2a-samples = { workspace = true }
+
+[tool.setuptools.packages.find]
+include = ["agents*", "common*"]

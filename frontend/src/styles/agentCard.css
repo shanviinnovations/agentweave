@@ -1,0 +1,219 @@
+/* Agent Card Styles */
+.agent-card {
+  background-color: var(--tw-color-surface);
+  border-radius: 1.25rem;
+  box-shadow: var(--tw-shadow-card);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Agent Card Header */
+.agent-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.agent-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--tw-color-primary-rgb), 0.2);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(var(--tw-color-primary-rgb), 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.agent-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(var(--tw-color-primary-rgb), 0.15) 0%, rgba(var(--tw-color-primary-rgb), 0) 70%);
+  z-index: 0;
+}
+
+.agent-avatar::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(
+    217deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.15) 25%, 
+    rgba(255, 255, 255, 0) 60%
+  );
+  z-index: 1;
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+.agent-avatar-label {
+  color: var(--tw-color-primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  35% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.agent-card:hover .agent-avatar {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(var(--tw-color-primary-rgb), 0.4),
+              0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.agent-card:hover .agent-avatar-label {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.agent-card:hover .agent-avatar::before {
+  background: radial-gradient(circle at center, rgba(var(--tw-color-primary-rgb), 0.25) 0%, rgba(var(--tw-color-primary-rgb), 0) 70%);
+}
+
+.agent-card:focus-within .agent-avatar {
+  box-shadow: 0 0 0 3px rgba(var(--tw-color-primary-rgb), 0.5),
+              0 5px 20px rgba(var(--tw-color-primary-rgb), 0.2);
+}
+
+/* Make avatar accessible with keyboard navigation */
+.agent-avatar:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--tw-color-primary-rgb), 0.5),
+              0 5px 20px rgba(var(--tw-color-primary-rgb), 0.2);
+}
+
+.agent-header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-title {
+  color: var(--tw-text-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.agent-version {
+  color: var(--tw-text-color-secondary);
+  font-size: 0.75rem;
+}
+
+/* Agent Description */
+.agent-desc-container {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(var(--tw-color-primary-rgb), 0.2);
+}
+
+.agent-desc {
+  color: var(--tw-text-color-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Skills Section */
+.skills-header {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--tw-text-color);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(var(--tw-color-primary-rgb), 0.15);
+}
+
+.agent-skill-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--tw-color-primary);
+  background: var(--tw-color-surface);
+  box-shadow: var(--tw-shadow-card);
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.agent-skill-card:hover {
+  transform: scale(1.03);
+  background: var(--tw-color-primary);
+}
+
+.agent-skill-card:hover .agent-skill-title,
+.agent-skill-card:hover .agent-skill-desc {
+  color: #fff;
+}
+
+.agent-skill-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: var(--tw-color-primary);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.agent-skill-title {
+  color: var(--tw-text-color);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.agent-skill-desc {
+  color: var(--tw-text-color-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  line-height: 1.2;
+}
+
+/* Agent Card Footer */
+.agent-card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+}

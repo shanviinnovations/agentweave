@@ -1,0 +1,101 @@
+/* Light mode specific overrides */
+:root[style*="--tw-color-background: #f8f9fa"] .agent-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-avatar {
+  background: rgba(var(--tw-color-primary-rgb), 0.15);
+  box-shadow: 0 0 0 2px rgba(var(--tw-color-primary-rgb), 0.3), 
+              0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-avatar-label {
+  color: rgba(var(--tw-color-primary-rgb), 1);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-avatar::before {
+  background: radial-gradient(circle at center, rgba(var(--tw-color-primary-rgb), 0.2) 0%, rgba(var(--tw-color-primary-rgb), 0) 70%);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .skills-header {
+  color: #333;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-card {
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-title {
+  color: #333;
+}
+
+:root[style*="--tw-color-background: #f8f9fa"] .agent-skill-avatar {
+  background: #333;
+  color: #fff;
+}
+
+/* Dark mode specific overrides */
+:root[style*="--tw-color-background: #18181b"] .agent-card,
+:root[style*="--tw-color-background: #2d1a06"] .agent-card,
+:root[style*="--tw-color-background: #10291e"] .agent-card,
+:root[style*="--tw-color-background: #2a1016"] .agent-card,
+:root[style*="--tw-color-background: #10212a"] .agent-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:root[style*="--tw-color-background: #18181b"] .agent-avatar,
+:root[style*="--tw-color-background: #2d1a06"] .agent-avatar,
+:root[style*="--tw-color-background: #10291e"] .agent-avatar,
+:root[style*="--tw-color-background: #2a1016"] .agent-avatar,
+:root[style*="--tw-color-background: #10212a"] .agent-avatar {
+  background: rgba(var(--tw-color-primary-rgb), 0.3);
+  box-shadow: 0 0 0 2px rgba(var(--tw-color-primary-rgb), 0.5),
+              0 0 15px rgba(var(--tw-color-primary-rgb), 0.3);
+}
+
+:root[style*="--tw-color-background: #18181b"] .agent-avatar-label,
+:root[style*="--tw-color-background: #2d1a06"] .agent-avatar-label,
+:root[style*="--tw-color-background: #10291e"] .agent-avatar-label,
+:root[style*="--tw-color-background: #2a1016"] .agent-avatar-label,
+:root[style*="--tw-color-background: #10212a"] .agent-avatar-label {
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(var(--tw-color-primary-rgb), 0.6),
+               0 2px 4px rgba(0, 0, 0, 0.3);
+  color: rgba(var(--tw-color-primary-rgb), 1);
+  letter-spacing: -0.5px;
+}
+
+:root[style*="--tw-color-background: #18181b"] .agent-avatar::before,
+:root[style*="--tw-color-background: #2d1a06"] .agent-avatar::before,
+:root[style*="--tw-color-background: #10291e"] .agent-avatar::before,
+:root[style*="--tw-color-background: #2a1016"] .agent-avatar::before,
+:root[style*="--tw-color-background: #10212a"] .agent-avatar::before {
+  background: radial-gradient(circle at center, rgba(var(--tw-color-primary-rgb), 0.4) 0%, rgba(var(--tw-color-primary-rgb), 0) 70%);
+}
+
+/* Special styling for Indigo/Blue theme */
+:root[style*="--tw-color-primary: #6366f1"] .agent-avatar {
+  background: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4),
+              0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+:root[style*="--tw-color-primary: #6366f1"] .agent-avatar-label {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.8),
+               0 2px 5px rgba(0, 0, 0, 0.4);
+  font-weight: 800;
+}
+
+:root[style*="--tw-color-primary: #6366f1"] .agent-avatar::before {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.5) 0%, rgba(99, 102, 241, 0) 70%);
+}
+
+:root[style*="--tw-color-primary: #6366f1"] .agent-card:hover .agent-avatar {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.6),
+              0 5px 20px rgba(99, 102, 241, 0.4);
+}

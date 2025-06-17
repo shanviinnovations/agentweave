@@ -1,0 +1,26 @@
+node_modules/
+**/package-lock.json
+
+# Exclude all build folders
+frontend/build/
+backend/build/
+
+# Exclude Python bytecode files
+**/__pycache__/
+**/*.pyc
+
+# Exclude Python virtual environments
+.venv/
+**/.venv/
+
+# Exclude environment variable files
+.env
+**/.env
+
+# Exclude Python egg-info folders
+backend/a2a_sample_agent_langgraph.egg-info/
+
+# Ignore backend log file
+backend/backend.log
+
+github_push.sh
