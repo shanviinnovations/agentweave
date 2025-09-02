@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/shanviinnovations-agentweave-badge.png)](https://mseep.ai/app/shanviinnovations-agentweave)
+
 # AgentWeave - Multi-Agent AI Communication Framework
 
 [![GitHub stars](https://img.shields.io/github/stars/shanviinnovations/agentweave)](https://github.com/shanviinnovations/agentweave/stargazers)
