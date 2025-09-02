@@ -1,19 +1,28 @@
-# AgentWeave
+# AgentWeave - Multi-Agent AI Communication Framework
+
+[![GitHub stars](https://img.shields.io/github/stars/shanviinnovations/agentweave)](https://github.com/shanviinnovations/agentweave/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shanviinnovations/agentweave)](https://github.com/shanviinnovations/agentweave/network)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
 ## Overview
 
-AgentWeave is a powerful, easy-to-use framework for creating and managing Agent-to-Agent (A2A) communication systems with integrated Model Context Protocol (MCP) and LangGraph support. It features JWT authentication and provides a seamless way to build complex agent networks that can interact with each other and external tools.
+**AgentWeave** is a cutting-edge, production-ready framework for creating and managing **multi-agent AI systems** with seamless **Agent-to-Agent (A2A) communication**. Built with integrated **Model Context Protocol (MCP)** and **LangGraph** support, AgentWeave enables developers to build sophisticated AI agent networks that can communicate, collaborate, and interact with external tools using **JWT authentication** for secure operations.
+
+🚀 **Perfect for**: AI researchers, developers building autonomous systems, chatbot networks, workflow automation, and enterprise AI solutions.
 
 > **Note:** This is an actively developed project. Multi-agent communication features are being continuously enhanced.
 
-## Key Features
+## 🌟 Key Features
 
-1. **MCP Tool Registration**: Easily register your MCP-compatible tools and spin up A2A server agents
-2. **Multi-Provider LLM Support**: Works with OpenAI, Azure OpenAI, and Google AI models
-3. **JWT Authentication**: Secure communication between agents with JSON Web Tokens
-4. **Reactive UI**: Real-time updates and streaming responses
-5. **Dynamic Agent Creation**: Create and configure agents on-the-fly through a user-friendly interface
-6. **Modular Architecture**: Easily extendable for custom agent behaviors and tools
+✅ **MCP Tool Registration**: Easily register your MCP-compatible tools and spin up A2A server agents  
+✅ **Multi-Provider LLM Support**: Works with OpenAI, Azure OpenAI, and Google AI models  
+✅ **JWT Authentication**: Secure communication between agents with JSON Web Tokens  
+✅ **Reactive UI**: Real-time updates and streaming responses  
+✅ **Dynamic Agent Creation**: Create and configure agents on-the-fly through a user-friendly interface  
+✅ **Modular Architecture**: Easily extendable for custom agent behaviors and tools  
+✅ **Docker Support**: Containerized MongoDB for easy deployment  
+✅ **REST API**: Full-featured API for integration with existing systems
 
 ## Quick Demo
 
@@ -49,7 +58,7 @@ AgentWeave uses a layered architecture for flexibility and scalability:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/agentweave.git
+git clone https://github.com/shanviinnovations/agentweave.git
 cd agentweave
 ```
 
@@ -199,6 +208,31 @@ Here's a step-by-step example of how to use AgentWeave:
 - `/scripts` - Shell scripts for development workflows
 - `/utils` - Shared utility functions
 - `/images` - Documentation images and assets
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+- How to submit bug reports and feature requests
+- Development setup and coding standards
+- Pull request process
+
+## 🛣️ Roadmap
+
+- [ ] Advanced agent orchestration
+- [ ] Built-in monitoring and analytics
+- [ ] Kubernetes deployment templates
+- [ ] Plugin system for custom integrations
+
+## 🏆 Awards and Recognition
+
+*This section will be updated as the project gains recognition in the AI community.*
+
+## 📊 Project Stats
+
+![GitHub repo size](https://img.shields.io/github/repo-size/shanviinnovations/agentweave)
+![GitHub issues](https://img.shields.io/github/issues/shanviinnovations/agentweave)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/shanviinnovations/agentweave)
+![GitHub last commit](https://img.shields.io/github/last-commit/shanviinnovations/agentweave)
 
 ## License
 
